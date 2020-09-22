@@ -25,6 +25,6 @@ public class Question_Answer {
 		
 		System.out.println("What sorts of books do you like to read?");
 		
-		System.out.println("My favorite genre is probably scientific, but, recently, I am also trying to read a few non-fiction books.");
+		System.out.println("My favorite genre is probably scientific fiction, but, recently, I am also trying to read a few non-fiction books.");
 	}
 }
