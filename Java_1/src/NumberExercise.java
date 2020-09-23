@@ -22,6 +22,7 @@ public class NumberExercise {
 		runner.setNumber(2);
 		runner.display();
 		runner.change(3);
+		runner.display();
 		
 	}
 }
