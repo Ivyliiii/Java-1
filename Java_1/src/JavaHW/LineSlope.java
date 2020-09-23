@@ -1,3 +1,4 @@
+package JavaHW;
 public class LineSlope {
 	
 	// you'll probably want some instance variables... (4 coordinates and a slope)

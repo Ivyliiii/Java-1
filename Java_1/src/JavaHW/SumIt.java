@@ -1,3 +1,4 @@
+package JavaHW;
 public class SumIt {
 	
   // instance variables
