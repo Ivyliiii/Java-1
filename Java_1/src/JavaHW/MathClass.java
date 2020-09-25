@@ -43,11 +43,14 @@ public class MathClass {
 	}
 	
 	public void roundToNearestWhole(double x) {
-		if (x%1 >= 0.5) {
+		/*if (x%1 >= 0.5) {
 			System.out.println((int)x + 1);
 		}else {
 			System.out.println((int)x);
 		}
+		*/
+		double y = x + 0.5;
+		System.out.println((int)y);
 		
 	}
 	public static void main(String args[]) {
@@ -82,7 +85,7 @@ public class MathClass {
 		tester.makeInteger(3.756);
 		
 		// output: 8
-		tester.roundToNearestWhole(9.2);
+		tester.roundToNearestWhole(8.4);
 	}
 
 }
