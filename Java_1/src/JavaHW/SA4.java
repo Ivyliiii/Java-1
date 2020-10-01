@@ -2,13 +2,11 @@ package JavaHW;
 
 public class SA4 {
 	
-	private double d;
-	
 	// create your methods here
 	public void distance(double x1, double y1, double x2, double y2) {
 		double p1 = Math.pow((x2-x1), 2); 
 		double p2 = Math.pow((y2-y1), 2);
-		d = Math.sqrt(p1+p2);
+		double d = Math.sqrt(p1+p2);
 		System.out.println(d);
 	}
 	
