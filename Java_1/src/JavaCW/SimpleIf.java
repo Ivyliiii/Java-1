@@ -5,20 +5,20 @@ public class SimpleIf {
 	public void posNeg(int num) {
 		
 		if (num > 0) {
-			System.out.println("yes");
+			System.out.println("Yes");
 		}
 		else {
-			System.out.println("no");
+			System.out.println("No");
 		}
 	}
 	
 	public void evenOdd(int num) {
 		
 		if (num % 2 == 0) {
-			System.out.println("even");
+			System.out.println("Even");
 		}
 		else {
-			System.out.println("odd");
+			System.out.println("Odd");
 		}
 		
 	}
@@ -39,10 +39,10 @@ public class SimpleIf {
 	public void divByTen(int num) {
 		
 		if (num % 10 == 0) {
-			System.out.println("Divisable by 10");
+			System.out.println("Divisible by 10");
 		}
 		else {
-			System.out.println("Add " + (10-(num%10)) + "to make it divisable");
+			System.out.println("Add " + (10-(num%10)) + "to make it divisible");
 		}
 	}
 	
