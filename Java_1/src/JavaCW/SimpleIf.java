@@ -85,6 +85,6 @@ public class SimpleIf {
 		tester.upperLower('Z');
 		tester.divByTen(400);
 		tester.maximum(18.1, 16.5, 17.1);
-		tester.wholeNum(1.00001);
+		tester.wholeNum(1.00000001);
 	}
 }
