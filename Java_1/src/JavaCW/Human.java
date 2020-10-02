@@ -1,3 +1,4 @@
+package JavaCW;
 
 
 public class Human {
@@ -49,7 +50,7 @@ public class Human {
 	
 	public void ifTeen() {
 		if (12 <= age && age <= 18) {
-			System.out.println("You are a teenager");
+			System.out.println("You are a teenager!!");
 		}
 		else {
 			System.out.println("You are not a teenager");
@@ -58,7 +59,7 @@ public class Human {
 	
 	public void ifTeammates(char c, int b) {
 		if ((c == gender) && (Math.abs(b-age) <= 2)) {
-			System.out.println("You guys can be teammates");
+			System.out.println("You guys can be teammates!!");
 		}
 		else {
 			System.out.println("You guys cannot be teammates :((");
