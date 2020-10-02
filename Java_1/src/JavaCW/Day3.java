@@ -1,3 +1,6 @@
+package JavaCW;
+
+
 public class Day3 {
 	
 	// Instance Variables (Global Variables) - it can be accessed anywhere in the class
@@ -39,4 +42,3 @@ public class Day3 {
 	}
 
 }
-

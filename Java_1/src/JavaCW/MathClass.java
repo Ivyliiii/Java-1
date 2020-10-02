@@ -1,4 +1,4 @@
-package JavaHW;
+package JavaCW;
 public class MathClass {
 	
 	private int key;
