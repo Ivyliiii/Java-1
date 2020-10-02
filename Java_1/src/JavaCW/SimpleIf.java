@@ -67,6 +67,16 @@ public class SimpleIf {
 		}
 	}
 	
+	public void wholeNum(double num) {
+		int numI = (int)num;
+		if (num == numI) {
+			System.out.println("Yassssss, it's a whole number.");
+		}
+		else {
+			System.out.println("Nope, it's not a whole number.");
+		}
+	}
+	
 	public static void main(String[] args) {
 		SimpleIf tester = new SimpleIf();
 		
@@ -75,5 +85,6 @@ public class SimpleIf {
 		tester.upperLower('Z');
 		tester.divByTen(400);
 		tester.maximum(18.1, 16.5, 17.1);
+		tester.wholeNum(1.00001);
 	}
 }
