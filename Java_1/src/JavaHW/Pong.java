@@ -1,6 +1,6 @@
 package JavaHW;
 
-//filler code for pong provided by Mr. David
+//filler code for pong provided by Mr. David 
 // we could do an input color
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,22 +12,32 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Pong extends JPanel implements KeyListener {
 	
+	Scanner in = new Scanner(System.in);
+	
 	// constants that are predefined and won't change as the program runs
 	private final int WIDTH = 600, HEIGHT = 600, WINDOW_HEIGHT = 650;
 	private final int PADDLE_WIDTH = 20, DIAM = 20, PADDLE_HEIGHT = 100;
-	private final int PADDLE_SPEED = 4; 
+	private int paddleSpeed1 = 4; 
+	private int paddleSpeed2 = 4; 
 	private int paddle_y2 = HEIGHT/2;
 	private int paddle_y1 = HEIGHT/2;
 	
 	private int x = WIDTH/2,y= HEIGHT/2, speedX = 7, speedY = 2;
-
 	
+	int markY1, markY2;
+	
+	private int time = 1;
+	
+	boolean hit;
+
 	// your instance variables here, I've given you a few 
 	private boolean up1, down1, up2, down2; 		// booleans to keep track of paddle movement
 	private boolean solo = false;
@@ -41,31 +51,70 @@ public class Pong extends JPanel implements KeyListener {
 	
 	// this method moves the paddles at each timestep
 	public void move_paddles() {
-		if (up2) {
-			paddle_y2 += PADDLE_SPEED;
+		if (up2 && !solo) {
+			paddle_y2 += paddleSpeed2;
 		}
-		if (down2) {
-			paddle_y2 -= PADDLE_SPEED;
+		if (down2 && !solo) {
+			paddle_y2 -= paddleSpeed2;
 		}
 		if (up1) {
-			paddle_y1 += PADDLE_SPEED;
+			paddle_y1 += paddleSpeed1;
 		}
 		if (down1) {
-			paddle_y1 -= PADDLE_SPEED;
+			paddle_y1 -= paddleSpeed1;
+		}
+		if (solo) {
+	
+			if (y < paddle_y2+PADDLE_HEIGHT/2-DIAM/2) {
+				paddle_y2 -= paddleSpeed2;
+			}
+			if (y > paddle_y2+PADDLE_HEIGHT/2-DIAM/2) {
+				paddle_y2 += paddleSpeed2;	
+			}
+		}
+		if (!solo && hit) {
+			checkX();
 		}
 		
 	}
+	
+	public void checkX() {
+		if (!solo) {
+			markY1 = (int)(Math.random()*600);
+			markY2 = (int)(Math.random()*600);
+			System.out.println(markY1);
+			System.out.println(markY2);
+			if (paddle_y1 == markY1) {
+				hit = true;
+				paddleSpeed1 += 1;
+			}
+			if (paddle_y2 == markY2) {
+				hit = true;
+				paddleSpeed2 += 1;
+			}
+		}
+	}
+	
 	
 	// this method checks if there are any bounces to take care of,
 	// and if the ball has reached a left/right wall it adds to 
 	// the corresponding player's score
 	public void check_collisions() {
 		
-		if (x >= WIDTH-DIAM || x <= 0 ) {
-			speedX = -speedX;
+		if (x <= PADDLE_WIDTH && y >= paddle_y1 && y <= (paddle_y1+PADDLE_HEIGHT)) {
+				speedX = -speedX;
 		}
-		if (y <= 0 || y >= HEIGHT-DIAM) {
-			speedY = -speedY;
+		else if (x >= (WIDTH-PADDLE_WIDTH*2) && y >= paddle_y2 && y <= (paddle_y2+PADDLE_HEIGHT)) { 
+				speedX = -speedX;
+		}
+		else {
+		
+			if (x >= WIDTH-DIAM || x <= 0 ) {
+				speedX = -speedX;
+			}
+			if (y <= 0 || y >= HEIGHT-DIAM) {
+				speedY = -speedY;
+			}
 		}
 		
 	}
@@ -92,6 +141,13 @@ public class Pong extends JPanel implements KeyListener {
 		g.setColor(Color.red);
 		g.drawString("P1 Score: ", WIDTH/5, 20);
 		g.drawString("P2 Score: ", WIDTH*3/5, 20);
+		if (!solo && (hit || time == 1)) {
+			g.setColor(Color.green);
+			g.drawString("X",PADDLE_WIDTH/2, markY1);
+			g.drawString("X", WIDTH-PADDLE_WIDTH/2, markY2);
+			System.out.println("Drawn");
+			time += 1;
+		}
 	}
 
 	// defines what we want to happen if a keyboard button has 
@@ -120,11 +176,13 @@ public class Pong extends JPanel implements KeyListener {
 			
 		// turn 1-player mode on
 		if (e.getKeyChar() == '1') {
+			solo = true;
 		}
 			
 			
 		// turn 2-player mode on
 		if (e.getKeyChar() == '2') {
+			solo = false;
 		}
 	}
 
@@ -136,10 +194,10 @@ public class Pong extends JPanel implements KeyListener {
 		
 		// stops paddle motion based on which button is released
 		if (keyCode == KeyEvent.VK_UP) {
-			up2 = false;
+			down2 = false;
 		}
 		if (keyCode == KeyEvent.VK_DOWN) {
-			down2 = false;
+			up2 = false;
 		}
 
 		if(e.getKeyChar() == 'w') {
@@ -150,7 +208,6 @@ public class Pong extends JPanel implements KeyListener {
 		if (e.getKeyChar() == 's') {
 			up1 = false;
 		}
-			
 	}
 	
 	// restarts the game, including scores
