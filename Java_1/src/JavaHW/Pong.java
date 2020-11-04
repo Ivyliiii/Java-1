@@ -1,6 +1,9 @@
 package JavaHW;
+
 // Google for some of the random and timing things inside the code
-//filler code for pong provided by Mr. David 
+// filler code for pong provided by Mr. David
+// filled by Ivy
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
