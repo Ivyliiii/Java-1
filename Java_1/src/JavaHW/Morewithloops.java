@@ -101,52 +101,13 @@ public class Morewithloops {
 		System.out.println(product);
 	}
 	
-	// This is going to have a squared run time? Maybe
-	// This is indefinite
-	boolean isSum = false;
-	public void magicSquare() {
-		int n = in.nextInt();
-		int found = 0;
-		int count = 1;
-		while(found < n) {
-			int y = 1;
-			int sum = 0;
-			while (y <= count) {
-				sum += y;
-				System.out.println("sum:" + sum);
-				if (sum == count) {
-					isSum = true;
-					
-					sum = 0;
-					break;
-				}
-				else {
-					y++;
-					isSum = false;
-				}
-			}
-			if (isSum && Math.pow((int)Math.sqrt(count),2) == y) {
-				System.out.print(count);
-				found++;
-				count++;
-				isSum = false;
-			}
-			else {
-				count++;
-				isSum = false;
-			}
-			isSum = false;
-		}
-	}
-
 	public static void main(String[] args) {
 		Morewithloops runner = new Morewithloops();
-		//runner.GCD();
-		//runner.LCM();
-		//runner.isPrime();
-		//runner.sayHi();
-		//runner.divisible();
-		//runner.factorial();
-		runner.magicSquare();
+		runner.GCD();
+		runner.LCM();
+		runner.isPrime();
+		runner.sayHi();
+		runner.divisible();
+		runner.factorial();
 	}
 }
