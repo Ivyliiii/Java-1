@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 public class Morewithloops {
 	Scanner in = new Scanner(System.in);
+	
+	// This is a indefinite method
 	// This is going to have a linear runtime because the worst case scenario would be running m(the biggest number entered) times 
 	public void GCD() {
+		System.out.println("Enter 2 integers:");
 		int num1 = in.nextInt();
 		int num2 = in.nextInt();
 		int count = Math.min(num1, num2);
@@ -20,7 +23,10 @@ public class Morewithloops {
 		}
 	}
 	
+	// I think this one is going to be indefinite
+	// This method has a linear runtime
 	public void LCM() {
+		System.out.println("Enter 2 integers:");
 		int num1 = in.nextInt();
 		int num2 = in.nextInt();
 		int count = Math.max(num1, num2);
@@ -30,29 +36,117 @@ public class Morewithloops {
 				break;
 			}
 			else {
-				count--;
+				count++;
 			}
 		}
 	}
 	
+	// This has a linear runtime
+	// This is a indefinite method
+	public void isPrime() {
+		System.out.println("Enter 1 integer:");
+		int num = in.nextInt();
+		int count = 2;
+		while (count < num) {
+			if ((num/count)*count == num) {
+				System.out.println("This is not a prime numer, it is factored by " + count);
+				break;
+			}
+			else {
+				count++;
+			}
+		}
+		if (count == num) {
+			System.out.println("This is a prime number!");
+		}
+	}
+	
+	// linear runtime
+	// indefinite
+	public void sayHi() {
+		System.out.println("Enter a integer:");
+		int times = in.nextInt();
+		int count = 1;
+		while (count <= times) {
+			System.out.println("hi");
+			count++;
+		}
+	}
+	
+	// linear runtime
+	// This is a indefinite method
+	public void divisible() {
+		System.out.println("Enter a integer");
+		int num = in.nextInt();
+		int count = 1;
+		while (count <= num) {
+			if ((num/count)*count == num) {
+				System.out.print(count + "\n");
+				count++;
+			}
+			else {
+				count++;
+			}
+		}
+	}
+	
+	public void factorial() {
+		System.out.println("Enter a integer");
+		int num = in.nextInt();
+		int product = 1;
+		while (num > 0) {
+			product = product*num;
+			num--;
+		}
+		System.out.println(product);
+	}
+	
+	// This is going to have a squared run time? Maybe
+	// This is indefinite
+	boolean isSum = false;
 	public void magicSquare() {
 		int n = in.nextInt();
 		int found = 0;
-		int count = 36;
-		int x = 0;
+		int count = 1;
 		while(found < n) {
-			if (Math.pow((int)Math.sqrt(count),2) == count)
-				while (Math.pow((int)Math.sqrt(count),2) == count) {
-					while (x < count) {
-						if 
-					}
+			int y = 1;
+			int sum = 0;
+			while (y <= count) {
+				sum += y;
+				System.out.println("sum:" + sum);
+				if (sum == count) {
+					isSum = true;
+					
+					sum = 0;
+					break;
+				}
+				else {
+					y++;
+					isSum = false;
 				}
 			}
+			if (isSum && Math.pow((int)Math.sqrt(count),2) == y) {
+				System.out.print(count);
+				found++;
+				count++;
+				isSum = false;
+			}
+			else {
+				count++;
+				isSum = false;
+			}
+			isSum = false;
 		}
+	}
 
 	public static void main(String[] args) {
 		Morewithloops runner = new Morewithloops();
 		//runner.GCD();
-		runner.LCM();
+		//runner.LCM();
+		//runner.isPrime();
+		//runner.sayHi();
+		//runner.divisible();
+		//runner.factorial();
+		runner.magicSquare();
 	}
 }
