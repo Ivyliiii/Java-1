@@ -54,11 +54,11 @@ public class forLoops {
 	
 	public static void main(String[] args) {
 		forLoops runner = new forLoops();
-		//runner.letters();
-		//runner.multiplicationTable();
+		runner.letters();
+		runner.multiplicationTable();
 		runner.primeNums(10);
-		//runner.printSum(7);
-		//runner.xStars(5);
+		runner.printSum(7);
+		runner.xStars(5);
 
 	}
 			
