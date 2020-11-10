@@ -90,6 +90,8 @@ public class Morewithloops {
 		}
 	}
 	
+	// linear runtime
+	// indefinite method
 	public void factorial() {
 		System.out.println("Enter a integer");
 		int num = in.nextInt();
