@@ -58,7 +58,7 @@ public class forLoops {
 		runner.multiplicationTable();
 		runner.primeNums(10);
 		runner.printSum(7);
-		runner.xStars(5);
+		runner.xStars(4);
 
 	}
 			
