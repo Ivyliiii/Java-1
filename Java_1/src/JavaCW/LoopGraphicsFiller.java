@@ -6,17 +6,26 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class LoopGraphicsFiller extends JPanel {
+	Random rand = new Random();
+	private Color randomColor;
+	private int x, y, h, w;
 	
 	// constants that are predefined and won't change as the program runs
 	private final int WIDTH = 1000, HEIGHT = 600;
@@ -45,17 +54,43 @@ public class LoopGraphicsFiller extends JPanel {
 		}
 	}
 	
-	public void randShape(Graphics g) {
-		for (int i = 0; i < 21; i++) {
-			if (i % 3 == 1) {
-				g.fillOval(i*25, 290, 20, 20);
-			}
-			else if (i % 3 == 2) {
-				g.fillRect(i*25, 290, 20, 20);
-			}
-			else {
-				g.fillPolygon(new int[]{}, new int[]{i*25+10}, 3);
-			}
+	public void checkerBoards(Graphics g){
+		for (int i = 0; i*20 < HEIGHT; i++) {
+			for (int j = 0; j*20 < WIDTH; j++)
+				if ((j+i) % 2 == 0) {
+					g.setColor(Color.BLACK);
+					g.fillRect(20*j, i*20, 20, 20);
+				}
+				else {
+					g.setColor(Color.WHITE);
+					g.fillRect(20*j, i*20, 20, 20);
+				}
+		}
+	}
+
+	public void random() {
+		int r = rand.nextInt(256);
+		int g = rand.nextInt(256);
+		int b = rand.nextInt(256);
+		randomColor = new Color(r, g, b);
+		x = rand.nextInt(1000);
+		y = rand.nextInt(600);
+		h = rand.nextInt(500);
+		w = rand.nextInt(300);
+	}
+	
+	public void randStuff(Graphics g) {
+		for (int i = 0; i < 20; i++) {
+			random();
+			g.setColor(randomColor);
+			g.fillRect(x, y, h, w);
+		}
+	}
+	
+	public void drawCircles(int n, Graphics g) {
+		g.setColor(Color.blue);
+		for (int i = 0; i < n; i++) {
+			g.fillOval(i*WIDTH/n, HEIGHT/2, WIDTH/n, WIDTH/n);
 		}
 	}
 
@@ -68,7 +103,10 @@ public class LoopGraphicsFiller extends JPanel {
 		
 		// call your methods here
 		//circlesSize(g);
-		coloredRecs(g);
+		//coloredRecs(g);
+		//checkerBoards(g);
+		//randStuff(g);
+		drawCircles(7,g);
 		
 	}
 
