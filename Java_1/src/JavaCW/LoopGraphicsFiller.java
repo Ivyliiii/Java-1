@@ -106,7 +106,7 @@ public class LoopGraphicsFiller extends JPanel {
 		//coloredRecs(g);
 		//checkerBoards(g);
 		//randStuff(g);
-		drawCircles(7,g);
+		//drawCircles(7,g);
 		
 	}
 
