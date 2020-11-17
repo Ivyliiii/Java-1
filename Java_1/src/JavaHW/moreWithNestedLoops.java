@@ -60,9 +60,9 @@ public class moreWithNestedLoops {
 
 	public static void main(String[] args) {
 		moreWithNestedLoops runner = new moreWithNestedLoops();
-		//runner.numReversed(5);
-		//runner.triangle(4);
-		//runner.what_power(2, 32);
+		runner.numReversed(5);
+		runner.triangle(4);
+		runner.what_power(2, 32);
 		runner.diamond(5);
 	}
 }
