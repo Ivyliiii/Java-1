@@ -1,3 +1,5 @@
+package JavaHW;
+
 public class moreArrayPractice {
 	
 	public void display(int[] arr) {
