@@ -104,11 +104,11 @@ public class moreArrayPractice {
 	
 	public static void main(String[] args) {
 		moreArrayPractice run = new moreArrayPractice();
-		//run.average(new int[] {3, 1, 6});
-		//run.printDigits(39564);
-		//run.noDuplicates(new int[] {2, 4, 6, 7, 3, 4, 6});
-		//run.common(new int[] {4,1,7,3,4}, new int[] {8,2,3,4});
-		//run.contain(new char[] {'i', 'g', 'o', 'd'}, 'e');
+		run.average(new int[] {3, 1, 6});
+		run.printDigits(39564);
+		run.noDuplicates(new int[] {2, 4, 6, 7, 3, 4, 6});
+		run.common(new int[] {4,1,7,3,4}, new int[] {8,2,3,4});
+		run.contain(new char[] {'i', 'g', 'o', 'd'}, 'e');
 		run.containStr(new String[] {"mom", "dad", "me"}, "hi");
 	}
 }
