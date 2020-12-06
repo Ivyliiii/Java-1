@@ -1,3 +1,4 @@
+package JavaCW;
 public class NumberExercise {
 	private double num;
 	

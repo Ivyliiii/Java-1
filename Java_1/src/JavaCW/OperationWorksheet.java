@@ -1,3 +1,5 @@
+package JavaCW;
+
 public class OperationWorksheet {
 	
 	double average;
